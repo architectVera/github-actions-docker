@@ -23,6 +23,6 @@ jobs:
           tags: local:latest # this is just to build the image, it's not pushed anywhere
           cache-from: |
             type=gha
-            type=gha,scope=master
-          cache-to: type=gha,mode=max,scope=master
+            type=gha,scope=global
+          cache-to: type=gha,mode=max
 
