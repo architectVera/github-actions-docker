@@ -1,3 +1,3 @@
 FROM ubuntu
-RUN apt-get update && apt-get install -y mc
+RUN apt-get update && apt-get install -y htop
 
