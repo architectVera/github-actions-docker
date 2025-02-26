@@ -22,9 +22,9 @@ jobs:
           ### default value for env.GCLOUD_PROJECT is set just so it does not fail on building an image, when there is not deployment required
           tags: local:latest # this is just to build the image, it's not pushed anywhere
           cache-from: |
-            type=gha,scope=v1
-          cache-to: |
-            type=gha,mode=max,scope=v2
+            type=gha,scope=v2
+          # cache-to: |
+          #   type=gha,mode=max,scope=v2
 
 
 
