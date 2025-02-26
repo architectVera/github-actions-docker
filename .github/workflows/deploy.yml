@@ -24,7 +24,7 @@ jobs:
           cache-from: |
             type=gha,scope=v1
           cache-to: |
-            type=gha,mode=max,scope=v1
+            type=gha,mode=max,scope=v2
 
 
 
