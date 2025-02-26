@@ -1,0 +1,31 @@
+name: Deploy Website1
+on:
+  workflow_dispatch:
+  push:  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: delay
+        run: sleep 60
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build application in docker and push (conditionally)
+        uses: docker/build-push-action@v5
+        with:
+          context: ./
+          file: Dockerfile1
+          push: false
+          ### default value for env.GCLOUD_PROJECT is set just so it does not fail on building an image, when there is not deployment required
+          tags: local:latest # this is just to build the image, it's not pushed anywhere
+          cache-from: type=gha,scope=global
+          cache-to: type=gha,mode=max,scope=global
+
+
+
+
