@@ -3,13 +3,15 @@ on:
   workflow_dispatch:
   push:  
 
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
       - name: Build application in docker and push (conditionally)
         uses: docker/build-push-action@v5
